@@ -3,6 +3,8 @@ import { Avatar } from "./BlogCard"
 
 
 export const Appbar = () => {
+    const userName = localStorage.getItem("userName") || "User";
+
     return <div className="border-b flex justify-between px-10 py-3">
         <Link to={'/blogs'} className="flex flex-col justify-center cursor-pointer">
             Medium
@@ -16,7 +18,7 @@ export const Appbar = () => {
 
             <Avatar 
             size={"big"}
-            name={"Aman"}
+            name={userName}
             />
         </div>
     </div>
