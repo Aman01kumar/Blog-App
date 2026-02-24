@@ -2,7 +2,6 @@ import { Hono } from "hono";
 
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
-import { sign } from 'hono/jwt'
 import { verify } from "hono/jwt";
 import { createBlogInput, updateBlogInput } from "@sammar568/medium-common";
 
@@ -47,6 +46,7 @@ blogRouter.post('/',  async (c) => {
 
     const body = await c.req.json();
     const { success } = createBlogInput.safeParse(body);
+
     if (!success) {
         c.status(411);
         return c.json({
@@ -158,7 +158,7 @@ blogRouter.get('/:id', async (c) => {
             blog
         });
     } catch(e) {
-        c.status(411); // 4
+        c.status(411); 
         return c.json({
             message: "Error while fetching blog post"
         });
