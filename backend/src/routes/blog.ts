@@ -1,5 +1,4 @@
 import { Hono } from "hono";
-
 import { PrismaClient } from '@prisma/client/edge'
 import { withAccelerate } from '@prisma/extension-accelerate'
 import { verify } from "hono/jwt";
@@ -70,9 +69,6 @@ blogRouter.post('/',  async (c) => {
     return c.json({
         id: blog.id
     })
-
-  
-
 })
 
 blogRouter.put('/', async (c) => {

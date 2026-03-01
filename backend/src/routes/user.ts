@@ -47,8 +47,6 @@ userRouter.post('/signup', async (c) => {
 		c.status(403);
 		return c.json({ error: "error while signing up" });
 	}
-
-
 })
 
 userRouter.post('/signin', async (c) => {
